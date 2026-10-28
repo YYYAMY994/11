@@ -7,137 +7,8 @@
 <meta name="apple-mobile-web-app-title" content="Spell & Cheer">
 <title>ECS2050 Spell & Cheer</title>
 /* =========================================
-   iPad Air 2 Specific Layout Fix
-   ========================================= */
-
-/* iPad Air 2 - Portrait */
-@media screen
-  and (min-width: 700px)
-  and (max-width: 900px)
-  and (orientation: portrait) {
-
-  body {
-    padding: 6px 10px;
-  }
-
-  .app {
-    width: 100%;
-    max-width: 740px;
-    margin: 0 auto;
-  }
-
-  /* Header */
-  h1 {
-    font-size: 1.55rem;
-    margin: 0;
-    line-height: 1.1;
-  }
-
-  .class {
-    font-size: 1.1rem;
-    margin: 2px 0 4px;
-  }
-
-  /* ABC / abc */
-  .case {
-    margin-bottom: 4px;
-  }
-
-  .case button {
-    padding: 6px 13px;
-    font-size: 0.9rem;
-  }
-
-  /* Word area */
-  .display {
-    min-height: 65px;
-    padding: 4px 8px;
-    border-width: 4px;
-    border-radius: 18px;
-
-    font-size: clamp(2.4rem, 7vw, 3.7rem);
-  }
-
-  /* Delete / Clear / Read Again */
-  .controls {
-    grid-template-columns: 1fr 1fr 1.3fr;
-    gap: 6px;
-    margin: 6px 0;
-  }
-
-  .control {
-    min-height: 40px;
-    padding: 6px 8px;
-    border-radius: 12px;
-    font-size: 0.9rem;
-  }
-
-  /* Alphabet */
-  .alphabet {
-    grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
-  }
-
-  .letter {
-    min-height: 50px;
-    border-width: 2px;
-    border-radius: 11px;
-
-    font-size: 1.7rem;
-
-    box-shadow: 0 3px 0 #18304f30;
-  }
-
-  /* Instructions */
-  .status {
-    margin: 5px 0;
-    font-size: 0.8rem;
-  }
-
-  /* Creator badge */
-  .credit {
-    margin: 5px auto 2px;
-    padding: 5px 11px;
-    gap: 6px;
-  }
-
-  .credit-star {
-    font-size: 1rem;
-  }
-
-  .credit-small {
-    font-size: 0.6rem;
-  }
-
-  .credit strong {
-    font-size: 0.8rem;
-  }
-
-  /* Picture popup */
-  .card {
-    width: min(440px, 90vw);
-    max-height: 86vh;
-    padding: 10px;
-  }
-
-  .card img {
-    max-height: 44vh;
-  }
-
-  .pw {
-    font-size: 2.5rem;
-  }
-
-  .next {
-    padding: 10px 18px;
-    font-size: 1rem;
-  }
-}
-
-
-/* =========================================
-   iPad Air 2 - Landscape
-   Recommended for your demo
+   iPad Air 2 - Landscape FULL SCREEN
+   1024 x 768 CSS layout
    ========================================= */
 
 @media screen
@@ -145,9 +16,27 @@
   and (max-width: 1100px)
   and (orientation: landscape) {
 
+  html,
   body {
-    padding: 5px 10px;
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
   }
+
+  body {
+    padding: 10px 14px;
+
+    overflow-x: hidden;
+
+    background:
+      linear-gradient(
+        145deg,
+        #fff5c7,
+        #e9fff2
+      );
+  }
+
+  /* Fill available iPad width */
 
   .app {
     width: 100%;
@@ -155,126 +44,178 @@
     margin: 0 auto;
   }
 
-  /* Header */
+
+  /* =====================================
+     Header
+     ===================================== */
+
   h1 {
-    font-size: 1.35rem;
-    margin: 0;
-    line-height: 1;
+    font-size: 2rem;
+
+    line-height: 1.1;
+
+    margin: 2px 0;
   }
 
   .class {
-    font-size: 0.95rem;
-    margin: 2px 0 3px;
+    font-size: 1.35rem;
+
+    margin: 3px 0 7px;
   }
 
-  /* ABC / abc */
+
+  /* =====================================
+     ABC / abc controls
+     ===================================== */
+
   .case {
-    margin-bottom: 3px;
+    margin-bottom: 9px;
   }
 
   .case button {
-    padding: 5px 12px;
-    font-size: 0.85rem;
-  }
+    padding: 8px 20px;
 
-  /* Word area */
-  .display {
-    min-height: 55px;
-    padding: 3px 8px;
+    margin: 0 5px;
 
-    border-width: 4px;
     border-radius: 16px;
 
-    font-size: clamp(2rem, 5vw, 3rem);
+    font-size: 1rem;
   }
 
-  /* Controls */
+
+  /* =====================================
+     Word display
+     ===================================== */
+
+  .display {
+    min-height: 100px;
+
+    padding: 8px;
+
+    border: 5px solid #ffd34e;
+
+    border-radius: 22px;
+
+    font-size:
+      clamp(3rem, 6vw, 4.5rem);
+  }
+
+
+  /* =====================================
+     Delete / Clear / Read Again
+     ===================================== */
+
   .controls {
-    grid-template-columns: 1fr 1fr 1.3fr;
+    grid-template-columns:
+      1fr 1fr 1.35fr;
 
-    gap: 6px;
+    gap: 10px;
 
-    margin: 5px 0;
+    margin: 10px 0;
   }
 
   .control {
-    min-height: 36px;
+    min-height: 52px;
 
-    padding: 5px 8px;
+    padding: 10px;
 
-    border-radius: 11px;
+    border-radius: 16px;
 
-    font-size: 0.85rem;
+    font-size: 1rem;
   }
 
-  /* Alphabet */
-  .alphabet {
-    grid-template-columns: repeat(9, 1fr);
 
-    gap: 5px;
+  /* =====================================
+     Alphabet
+     ===================================== */
+
+  .alphabet {
+    grid-template-columns:
+      repeat(9, minmax(0, 1fr));
+
+    gap: 9px;
   }
 
   .letter {
-    min-height: 44px;
+    min-height: 70px;
 
-    border-width: 2px;
+    border-width: 3px;
 
-    border-radius: 10px;
+    border-radius: 15px;
 
-    font-size: 1.55rem;
+    font-size: 2.25rem;
 
-    box-shadow: 0 3px 0 #18304f30;
+    box-shadow:
+      0 4px 0 #18304f30;
   }
 
-  /* Instructions */
+
+  /* =====================================
+     Instruction
+     ===================================== */
+
   .status {
-    margin: 3px 0;
+    margin: 10px 0 7px;
 
-    font-size: 0.75rem;
+    font-size: 1rem;
   }
 
-  /* Alicia badge */
+
+  /* =====================================
+     Alicia Creator Badge
+     ===================================== */
+
   .credit {
-    margin: 3px auto 1px;
+    margin: 9px auto 4px;
 
-    padding: 4px 10px;
+    padding: 8px 16px;
 
-    gap: 5px;
+    gap: 8px;
   }
 
   .credit-star {
-    font-size: 0.95rem;
+    font-size: 1.3rem;
   }
 
   .credit-small {
-    font-size: 0.55rem;
+    font-size: 0.7rem;
   }
 
   .credit strong {
-    font-size: 0.75rem;
+    font-size: 1rem;
   }
 
-  /* Word picture */
+
+  /* =====================================
+     Completed Word Popup
+     ===================================== */
+
   .card {
-    width: min(420px, 82vw);
+    width: min(520px, 88vw);
 
-    max-height: 86vh;
+    max-height: 88vh;
 
-    padding: 9px;
+    padding: 14px;
   }
 
   .card img {
-    max-height: 42vh;
+    max-width: 100%;
+
+    max-height: 50vh;
+
+    object-fit: contain;
   }
 
   .pw {
-    font-size: 2.3rem;
+    font-size: 3rem;
+
+    margin: 5px;
   }
 
   .next {
-    padding: 9px 17px;
+    padding: 12px 22px;
 
-    font-size: 0.95rem;
+    font-size: 1.05rem;
   }
 }
 </head>
