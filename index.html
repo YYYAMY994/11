@@ -6,585 +6,200 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Spell & Cheer">
 <title>ECS2050 Spell & Cheer</title>
-
 <style>
-
-/* ==========================================================
-   ECS2050 - Spell & Cheer
-   iPad Air 2 Friendly Layout
-   ========================================================== */
-
 * {
-    box-sizing: border-box;
-}
-
-html {
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden;
-}
+  box-sizing:border-box}
 
 body {
-    margin: 0;
-    padding: 12px;
-
-    width: 100%;
-    min-height: 100vh;
-
-    overflow-x: hidden;
-
-    background:
-        linear-gradient(
-            145deg,
-            #fff5c7,
-            #e9fff2
-        );
-
-    font-family:
-        "Arial Rounded MT Bold",
-        Arial,
-        system-ui,
-        sans-serif;
-
-    color: #18304f;
-}
-
-
-/* ==========================================================
-   MAIN APP
-   ========================================================== */
+  margin:0;
+  padding:16px;
+  background:linear-gradient(145deg,#fff5c7,#e9fff2);
+  font-family:Arial Rounded MT Bold,system-ui,sans-serif;
+  color:#18304f;
+  min-height:100vh}
 
 .app {
-    width: 100%;
-    max-width: 1100px;
-
-    margin: 0 auto;
-}
-
-
-/* ==========================================================
-   TITLE
-   ========================================================== */
+  max-width:1100px;
+  margin:auto}
 
 h1 {
-    margin: 2px 0;
-
-    text-align: center;
-
-    font-size: 2rem;
-    line-height: 1.1;
-
-    color: #18304f;
-}
-
-
-/* ECS2050 */
+  text-align:center;
+  margin:2px 0;
+  font-size:2.2rem}
 
 .class {
-    margin: 3px 0 7px;
-
-    text-align: center;
-
-    color: #654fd4;
-
-    font-size: 1.35rem;
-    font-weight: 900;
-}
-
-
-/* ==========================================================
-   ABC / abc BUTTONS
-   ========================================================== */
-
-.case {
-    margin-bottom: 8px;
-
-    text-align: center;
-}
-
-.case button {
-    border: 0;
-
-    border-radius: 15px;
-
-    padding: 8px 20px;
-
-    margin: 0 4px;
-
-    background: #6e82ff;
-
-    color: #ffffff;
-
-    font-size: 1rem;
-    font-weight: 900;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 3px 0 rgba(50, 65, 160, 0.22);
-}
-
-.case button:active {
-    transform: translateY(2px);
-}
-
-
-/* ==========================================================
-   WORD DISPLAY
-   ========================================================== */
+  text-align:center;
+  color:#654fd4;
+  font-size:1.8rem;
+  font-weight:900;
+  margin:5px 0 10px}
 
 .display {
-    width: 100%;
-
-    min-height: 92px;
-
-    padding: 8px;
-
-    display: grid;
-
-    place-items: center;
-
-    background: #ffffff;
-
-    border: 5px solid #ffd34e;
-
-    border-radius: 22px;
-
-    text-align: center;
-
-    font-size:
-        clamp(2.8rem, 6vw, 4.5rem);
-
-    font-weight: 950;
-
-    letter-spacing: 0.08em;
-
-    overflow-wrap: anywhere;
-}
-
-
-/* ==========================================================
-   DELETE / CLEAR / READ AGAIN
-   ========================================================== */
+  background:#fff;
+  border:5px solid #ffd34e;
+  border-radius:25px;
+  min-height:140px;
+  display:grid;
+  place-items:center;
+  font-size:clamp(3rem,9vw,6rem);
+  font-weight:950;
+  letter-spacing:.08em}
 
 .controls {
-    width: 100%;
-
-    display: grid;
-
-    grid-template-columns:
-        1fr 1fr 1.35fr;
-
-    gap: 9px;
-
-    margin: 9px 0;
-}
+  display:grid;
+  grid-template-columns:1fr 1fr 1.4fr;
+  gap:10px;
+  margin:12px 0}
 
 .control {
-    min-height: 48px;
-
-    border: 0;
-
-    border-radius: 15px;
-
-    padding: 8px 10px;
-
-    color: #ffffff;
-
-    font-size: 1rem;
-
-    font-weight: 900;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 3px 0 rgba(24, 48, 79, 0.15);
-}
-
-.control:active {
-    transform: translateY(2px);
-}
-
-
-/* Delete */
+  border:0;
+  border-radius:18px;
+  padding:16px;
+  color:#fff;
+  font-size:1.2rem;
+  font-weight:900}
 
 .del {
-    background: #f28a36;
-}
-
-
-/* Clear */
+  background:#f28a36}
 
 .clear {
-    background: #eb5a65;
-}
-
-
-/* Read Again */
+  background:#eb5a65}
 
 .read {
-    background: #21ab5a;
-}
-
-
-/* ==========================================================
-   ALPHABET
-   ========================================================== */
+  background:#21ab5a}
 
 .alphabet {
-    width: 100%;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(9, minmax(0, 1fr));
-
-    gap: 8px;
-}
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:10px}
 
 .letter {
-    width: 100%;
+  min-height:90px;
+  border:3px solid #18304f20;
+  border-radius:18px;
+  font-size:clamp(2.6rem,7vw,4.8rem);
+  font-weight:950;
+  color:#18304f;
+  box-shadow:0 5px 0 #18304f30}
 
-    min-width: 0;
-
-    min-height: 60px;
-
-    padding: 4px;
-
-    border: 3px solid
-        rgba(24, 48, 79, 0.13);
-
-    border-radius: 14px;
-
-    color: #18304f;
-
-    font-size: 2rem;
-
-    font-weight: 950;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 4px 0
-        rgba(24, 48, 79, 0.18);
-}
-
-.letter:active {
-    transform: translateY(3px);
-
-    box-shadow:
-        0 1px 0
-        rgba(24, 48, 79, 0.18);
-}
-
-
-/* ==========================================================
-   STATUS
-   ========================================================== */
-
-.status {
-    margin: 8px 0 6px;
-
-    text-align: center;
-
-    color: #18304f;
-
-    font-size: 0.95rem;
-
-    font-weight: 800;
-}
-
-
-/* ==========================================================
-   FUN CREATOR BADGE
-   ========================================================== */
+.status,.credit {
+  text-align:center;
+  font-weight:800}
 
 .credit {
-    width: fit-content;
-
-    max-width: 94%;
-
-    margin: 7px auto 4px;
-
-    padding: 7px 15px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 8px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #fff0a8,
-            #ffd7ec,
-            #cdefff
-        );
-
-    border: 3px solid #ffffff;
-
-    border-radius: 999px;
-
-    box-shadow:
-        0 4px 0
-        rgba(24, 48, 79, 0.14);
-
-    text-align: center;
-}
-
-.credit-star {
-    font-size: 1.25rem;
-}
-
-.credit-text {
-    display: flex;
-
-    flex-direction: column;
-
-    line-height: 1.05;
-}
-
-.credit-small {
-    color: #58677d;
-
-    font-size: 0.68rem;
-
-    letter-spacing: 0.04em;
-}
-
-.credit strong {
-    margin-top: 3px;
-
-    color: #5d45c6;
-
-    font-size: 0.95rem;
-}
-
-
-/* ==========================================================
-   COMPLETED WORD POPUP
-   ========================================================== */
+  margin-top:16px;
+  color:#59677b}
 
 .pop {
-    display: none;
-
-    position: fixed;
-
-    inset: 0;
-
-    padding: 16px;
-
-    align-items: center;
-
-    justify-content: center;
-
-    background:
-        rgba(23, 36, 61, 0.72);
-
-    z-index: 20;
-}
+  display:none;
+  position:fixed;
+  inset:0;
+  background:#17243db8;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  z-index:20}
 
 .pop.show {
-    display: flex;
-}
-
-
-/* Picture card */
+  display:flex}
 
 .card {
-    width:
-        min(520px, 90vw);
-
-    max-height: 88vh;
-
-    padding: 14px;
-
-    overflow-y: auto;
-
-    background: #ffffff;
-
-    border: 6px solid #ffd34e;
-
-    border-radius: 26px;
-
-    text-align: center;
-
-    box-shadow:
-        0 12px 35px
-        rgba(0, 0, 0, 0.25);
-}
-
-
-/* Picture */
+  background:#fff;
+  border:6px solid #ffd34e;
+  border-radius:28px;
+  padding:18px;
+  width:min(560px,94vw);
+  text-align:center}
 
 .card img {
-    display: block;
-
-    width: auto;
-
-    max-width: 100%;
-
-    height: auto;
-
-    max-height: 50vh;
-
-    margin: 0 auto;
-
-    object-fit: contain;
-
-    border-radius: 18px;
-}
-
-
-/* Word under picture */
+  display:block;
+  max-width:100%;
+  max-height:55vh;
+  margin:auto;
+  border-radius:20px}
 
 .pw {
-    margin: 5px;
-
-    font-size:
-        clamp(2.5rem, 7vw, 4rem);
-
-    font-weight: 950;
-
-    color: #18304f;
-}
-
-
-/* Next Word */
+  font-size:clamp(2.5rem,8vw,5rem);
+  font-weight:950;
+  margin:6px}
 
 .next {
-    border: 0;
+  border:0;
+  background:#21ab5a;
+  color:#fff;
+  border-radius:16px;
+  padding:14px 24px;
+  font-size:1.2rem;
+  font-weight:900}
 
-    border-radius: 16px;
+.case {
+  text-align:center;
+  margin-bottom:10px}
 
-    padding: 12px 22px;
+.case button {
+  border:0;
+  border-radius:14px;
+  background:#6e82ff;
+  color:#fff;
+  padding:10px 20px;
+  margin:0 4px;
+  font-weight:900;
+  font-size:1.1rem}
 
-    background: #21ab5a;
+@media(max-width:600px) {
+  .alphabet {
+  grid-template-columns:repeat(4,1fr)}
 
-    color: #ffffff;
+.letter {
+  min-height:78px}
 
-    font-size: 1.05rem;
+.controls {
+  grid-template-columns:1fr 1fr}
 
-    font-weight: 900;
+.read {
+  grid-column:1/-1}
 
-    cursor: pointer;
 }
 
 
-/* ==========================================================
-   iPAD AIR 2 - LANDSCAPE
-   Designed to use the screen without cutting off content
-   ========================================================== */
 
-@media screen
-and (min-width: 900px)
-and (max-width: 1100px)
-and (orientation: landscape) {
+/* Fun creator badge */
+.credit {
+  width: fit-content;
+  max-width: 92%;
+  margin: 22px auto 8px;
+  padding: 10px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #fff0a8, #ffd7ec, #cdefff);
+  border: 3px solid #ffffff;
+  border-radius: 999px;
+  box-shadow: 0 5px 0 rgba(24, 48, 79, 0.14);
+  color: #5636ad;
+  text-align: center;
+}
+.credit-star {
+  font-size: 1.55rem;
+}
+.credit-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+}
+.credit-small {
+  font-size: 0.78rem;
+  color: #58677d;
+  letter-spacing: 0.04em;
+}
+.credit strong {
+  margin-top: 3px;
+  font-size: 1.08rem;
+  color: #5d45c6;
+}
 
-    body {
-        padding: 8px 12px;
-    }
-
-
-    /* Title */
-
-    h1 {
-        margin: 0;
-
-        font-size: 1.8rem;
-    }
-
-
-    /* Class */
-
-    .class {
-        margin: 2px 0 5px;
-
-        font-size: 1.2rem;
-    }
-
-
-    /* ABC / abc */
-
-    .case {
-        margin-bottom: 6px;
-    }
-
-    .case button {
-        padding: 7px 18px;
-
-        font-size: 0.95rem;
-    }
-
-
-    /* Word area */
-
-    .display {
-        min-height: 82px;
-
-        padding: 6px;
-
-        font-size:
-            clamp(2.7rem, 5vw, 3.8rem);
-    }
-
-
-    /* Actions */
-
-    .controls {
-        margin: 7px 0;
-
-        gap: 8px;
-    }
-
-    .control {
-        min-height: 44px;
-
-        padding: 7px 9px;
-
-        font-size: 0.95rem;
-    }
-
-
-    /* Alphabet */
-
-    .alphabet {
-        grid-template-columns:
-            repeat(9, minmax(0, 1fr));
-
-        gap: 7px;
-    }
-
-    .letter {
-        min-height: 58px;
-
-        font-size: 1.9rem;
-
-        border-radius: 13px;
-    }
-
-
-    /* Status */
-
-    .status {
-        margin: 7px 0 4px;
-
-        font-size: 0.9rem;
-    }
-
-
-    /* Creator badge */
-
-    .credit {
-        margin: 6px auto 2px;
-
-        padding: 6px 14px;
-    }
-
-    .credit-star {
+</style>
 </head>
 <body>
 <main class="app">
