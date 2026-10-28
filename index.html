@@ -6,637 +6,277 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Spell & Cheer">
 <title>ECS2050 Spell & Cheer</title>
-<style>
 /* =========================================
-   ECS2050 - Spell & Cheer
-   Kid-friendly responsive layout
+   iPad Air 2 Specific Layout Fix
    ========================================= */
 
-* {
-  box-sizing: border-box;
-}
-
-html {
-  width: 100%;
-  overflow-x: hidden;
-}
-
-body {
-  margin: 0;
-  padding: 14px;
-  width: 100%;
-  min-height: 100vh;
-  overflow-x: hidden;
-
-  background: linear-gradient(145deg, #fff5c7, #e9fff2);
-
-  font-family:
-    "Arial Rounded MT Bold",
-    system-ui,
-    sans-serif;
-
-  color: #18304f;
-}
-
-
-/* =========================================
-   Main App
-   ========================================= */
-
-.app {
-  width: 100%;
-  max-width: 1050px;
-  margin: 0 auto;
-}
-
-
-/* =========================================
-   Title
-   ========================================= */
-
-h1 {
-  text-align: center;
-  margin: 2px 0;
-
-  font-size: clamp(1.7rem, 4vw, 2.2rem);
-}
-
-
-/* ECS2050 */
-
-.class {
-  text-align: center;
-
-  color: #654fd4;
-
-  font-size: clamp(1.25rem, 3vw, 1.8rem);
-
-  font-weight: 900;
-
-  margin: 4px 0 8px;
-}
-
-
-/* =========================================
-   ABC / abc Buttons
-   ========================================= */
-
-.case {
-  text-align: center;
-
-  margin-bottom: 8px;
-}
-
-.case button {
-  border: 0;
-
-  border-radius: 14px;
-
-  background: #6e82ff;
-
-  color: #ffffff;
-
-  padding: 9px 18px;
-
-  margin: 0 4px;
-
-  font-weight: 900;
-
-  font-size: 1rem;
-
-  cursor: pointer;
-}
-
-
-/* =========================================
-   Word Display
-   ========================================= */
-
-.display {
-  background: #ffffff;
-
-  border: 5px solid #ffd34e;
-
-  border-radius: 22px;
-
-  min-height: 105px;
-
-  padding: 8px;
-
-  display: grid;
-
-  place-items: center;
-
-  text-align: center;
-
-  font-size: clamp(2.8rem, 7vw, 5.5rem);
-
-  font-weight: 950;
-
-  letter-spacing: 0.08em;
-
-  overflow-wrap: anywhere;
-}
-
-
-/* =========================================
-   Delete / Clear / Read Again
-   ========================================= */
-
-.controls {
-  display: grid;
-
-  grid-template-columns:
-    1fr 1fr 1.35fr;
-
-  gap: 9px;
-
-  margin: 9px 0;
-}
-
-.control {
-  border: 0;
-
-  border-radius: 16px;
-
-  min-height: 52px;
-
-  padding: 10px 12px;
-
-  color: #ffffff;
-
-  font-size: 1rem;
-
-  font-weight: 900;
-
-  cursor: pointer;
-}
-
-.del {
-  background: #f28a36;
-}
-
-.clear {
-  background: #eb5a65;
-}
-
-.read {
-  background: #21ab5a;
-}
-
-
-/* =========================================
-   Alphabet Grid
-   ========================================= */
-
-.alphabet {
-  display: grid;
-
-  grid-template-columns:
-    repeat(6, minmax(0, 1fr));
-
-  gap: 8px;
-
-  width: 100%;
-}
-
-.letter {
-  width: 100%;
-
-  min-width: 0;
-
-  min-height: 68px;
-
-  border: 3px solid #18304f20;
-
-  border-radius: 16px;
-
-  font-size: clamp(2rem, 5vw, 3.3rem);
-
-  font-weight: 950;
-
-  color: #18304f;
-
-  box-shadow:
-    0 4px 0 #18304f30;
-
-  cursor: pointer;
-}
-
-
-/* Nice touch effect */
-
-.letter:active,
-.control:active,
-.case button:active {
-  transform: translateY(2px);
-}
-
-
-/* =========================================
-   Status Message
-   ========================================= */
-
-.status {
-  text-align: center;
-
-  font-weight: 800;
-
-  font-size: 0.95rem;
-
-  margin: 8px 0;
-}
-
-
-/* =========================================
-   Picture Popup
-   ========================================= */
-
-.pop {
-  display: none;
-
-  position: fixed;
-
-  inset: 0;
-
-  background: #17243db8;
-
-  align-items: center;
-
-  justify-content: center;
-
-  padding: 16px;
-
-  z-index: 20;
-}
-
-.pop.show {
-  display: flex;
-}
-
-.card {
-  background: #ffffff;
-
-  border: 6px solid #ffd34e;
-
-  border-radius: 26px;
-
-  padding: 14px;
-
-  width: min(520px, 92vw);
-
-  max-height: 90vh;
-
-  overflow-y: auto;
-
-  text-align: center;
-}
-
-.card img {
-  display: block;
-
-  max-width: 100%;
-
-  max-height: 52vh;
-
-  margin: auto;
-
-  border-radius: 18px;
-
-  object-fit: contain;
-}
-
-
-/* Completed Word */
-
-.pw {
-  font-size: clamp(2.4rem, 7vw, 4.5rem);
-
-  font-weight: 950;
-
-  margin: 5px;
-}
-
-
-/* Next Word Button */
-
-.next {
-  border: 0;
-
-  background: #21ab5a;
-
-  color: #ffffff;
-
-  border-radius: 16px;
-
-  padding: 12px 22px;
-
-  font-size: 1.1rem;
-
-  font-weight: 900;
-
-  cursor: pointer;
-}
-
-
-/* =========================================
-   Fun Creator Badge
-   ========================================= */
-
-.credit {
-  width: fit-content;
-
-  max-width: 92%;
-
-  margin: 12px auto 5px;
-
-  padding: 8px 16px;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  gap: 9px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #fff0a8,
-      #ffd7ec,
-      #cdefff
-    );
-
-  border: 3px solid #ffffff;
-
-  border-radius: 999px;
-
-  box-shadow:
-    0 4px 0 rgba(24, 48, 79, 0.14);
-
-  color: #5636ad;
-
-  text-align: center;
-}
-
-.credit-star {
-  font-size: 1.4rem;
-}
-
-.credit-text {
-  display: flex;
-
-  flex-direction: column;
-
-  line-height: 1.05;
-}
-
-.credit-small {
-  font-size: 0.75rem;
-
-  color: #58677d;
-
-  letter-spacing: 0.04em;
-}
-
-.credit strong {
-  margin-top: 3px;
-
-  font-size: 1rem;
-
-  color: #5d45c6;
-}
-
-
-/* =========================================
-   PHONE
-   ========================================= */
-
-@media screen and (max-width: 699px) {
-
-  body {
-    padding: 10px;
-  }
-
-  .display {
-    min-height: 90px;
-  }
-
-  .alphabet {
-    grid-template-columns:
-      repeat(4, minmax(0, 1fr));
-
-    gap: 7px;
-  }
-
-  .letter {
-    min-height: 66px;
-
-    font-size: 2rem;
-  }
-
-  .controls {
-    grid-template-columns:
-      1fr 1fr;
-  }
-
-  .read {
-    grid-column:
-      1 / -1;
-  }
-}
-
-
-/* =========================================
-   iPAD PORTRAIT
-   Keeps the original colorful appearance.
-   ========================================= */
-
+/* iPad Air 2 - Portrait */
 @media screen
   and (min-width: 700px)
-  and (max-width: 1100px)
+  and (max-width: 900px)
   and (orientation: portrait) {
 
   body {
-    padding: 10px 12px;
+    padding: 6px 10px;
   }
 
   .app {
-    max-width: 820px;
+    width: 100%;
+    max-width: 740px;
+    margin: 0 auto;
   }
 
+  /* Header */
   h1 {
-    font-size: 1.8rem;
-
+    font-size: 1.55rem;
     margin: 0;
+    line-height: 1.1;
   }
 
   .class {
-    font-size: 1.3rem;
-
-    margin-bottom: 6px;
+    font-size: 1.1rem;
+    margin: 2px 0 4px;
   }
 
+  /* ABC / abc */
   .case {
-    margin-bottom: 6px;
+    margin-bottom: 4px;
   }
 
+  .case button {
+    padding: 6px 13px;
+    font-size: 0.9rem;
+  }
+
+  /* Word area */
   .display {
-    min-height: 90px;
+    min-height: 65px;
+    padding: 4px 8px;
+    border-width: 4px;
+    border-radius: 18px;
 
-    font-size:
-      clamp(2.8rem, 7vw, 4.5rem);
+    font-size: clamp(2.4rem, 7vw, 3.7rem);
   }
 
+  /* Delete / Clear / Read Again */
   .controls {
-    margin: 8px 0;
+    grid-template-columns: 1fr 1fr 1.3fr;
+    gap: 6px;
+    margin: 6px 0;
   }
 
-  .alphabet {
-    grid-template-columns:
-      repeat(6, minmax(0, 1fr));
+  .control {
+    min-height: 40px;
+    padding: 6px 8px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+  }
 
-    gap: 7px;
+  /* Alphabet */
+  .alphabet {
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
   }
 
   .letter {
-    min-height: 64px;
+    min-height: 50px;
+    border-width: 2px;
+    border-radius: 11px;
 
-    font-size: 2.25rem;
+    font-size: 1.7rem;
 
-    border-radius: 14px;
+    box-shadow: 0 3px 0 #18304f30;
   }
 
+  /* Instructions */
+  .status {
+    margin: 5px 0;
+    font-size: 0.8rem;
+  }
+
+  /* Creator badge */
   .credit {
-    margin-top: 9px;
+    margin: 5px auto 2px;
+    padding: 5px 11px;
+    gap: 6px;
+  }
+
+  .credit-star {
+    font-size: 1rem;
+  }
+
+  .credit-small {
+    font-size: 0.6rem;
+  }
+
+  .credit strong {
+    font-size: 0.8rem;
+  }
+
+  /* Picture popup */
+  .card {
+    width: min(440px, 90vw);
+    max-height: 86vh;
+    padding: 10px;
+  }
+
+  .card img {
+    max-height: 44vh;
+  }
+
+  .pw {
+    font-size: 2.5rem;
+  }
+
+  .next {
+    padding: 10px 18px;
+    font-size: 1rem;
   }
 }
 
 
 /* =========================================
-   iPAD LANDSCAPE
-   Best layout for your presentation.
+   iPad Air 2 - Landscape
+   Recommended for your demo
    ========================================= */
 
 @media screen
-  and (min-width: 700px)
-  and (max-width: 1400px)
+  and (min-width: 900px)
+  and (max-width: 1100px)
   and (orientation: landscape) {
 
   body {
-    padding: 7px 12px;
+    padding: 5px 10px;
   }
 
   .app {
-    max-width: 1120px;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
   }
 
+  /* Header */
   h1 {
-    font-size: 1.55rem;
-
+    font-size: 1.35rem;
     margin: 0;
+    line-height: 1;
   }
 
   .class {
-    font-size: 1.15rem;
-
-    margin: 2px 0 5px;
+    font-size: 0.95rem;
+    margin: 2px 0 3px;
   }
 
+  /* ABC / abc */
   .case {
-    margin-bottom: 5px;
+    margin-bottom: 3px;
   }
 
   .case button {
-    padding: 6px 14px;
-
-    font-size: 0.9rem;
+    padding: 5px 12px;
+    font-size: 0.85rem;
   }
 
+  /* Word area */
   .display {
-    min-height: 68px;
+    min-height: 55px;
+    padding: 3px 8px;
 
-    padding: 4px;
+    border-width: 4px;
+    border-radius: 16px;
 
-    border-radius: 18px;
-
-    font-size:
-      clamp(2.3rem, 5vw, 3.5rem);
+    font-size: clamp(2rem, 5vw, 3rem);
   }
 
+  /* Controls */
   .controls {
-    margin: 6px 0;
+    grid-template-columns: 1fr 1fr 1.3fr;
 
-    gap: 8px;
+    gap: 6px;
+
+    margin: 5px 0;
   }
 
   .control {
-    min-height: 42px;
+    min-height: 36px;
 
-    padding: 6px 10px;
+    padding: 5px 8px;
 
-    font-size: 0.95rem;
-  }
-
-  .alphabet {
-    grid-template-columns:
-      repeat(9, minmax(0, 1fr));
-
-    gap: 6px;
-  }
-
-  .letter {
-    min-height: 52px;
-
-    font-size: 1.8rem;
-
-    border-radius: 13px;
-
-    box-shadow:
-      0 3px 0 #18304f30;
-  }
-
-  .status {
-    margin: 5px 0;
+    border-radius: 11px;
 
     font-size: 0.85rem;
   }
 
-  .credit {
-    margin: 6px auto 2px;
+  /* Alphabet */
+  .alphabet {
+    grid-template-columns: repeat(9, 1fr);
 
-    padding: 6px 13px;
+    gap: 5px;
+  }
+
+  .letter {
+    min-height: 44px;
+
+    border-width: 2px;
+
+    border-radius: 10px;
+
+    font-size: 1.55rem;
+
+    box-shadow: 0 3px 0 #18304f30;
+  }
+
+  /* Instructions */
+  .status {
+    margin: 3px 0;
+
+    font-size: 0.75rem;
+  }
+
+  /* Alicia badge */
+  .credit {
+    margin: 3px auto 1px;
+
+    padding: 4px 10px;
+
+    gap: 5px;
   }
 
   .credit-star {
-    font-size: 1.15rem;
+    font-size: 0.95rem;
   }
 
   .credit-small {
-    font-size: 0.65rem;
+    font-size: 0.55rem;
   }
 
   .credit strong {
-    font-size: 0.9rem;
+    font-size: 0.75rem;
   }
 
+  /* Word picture */
   .card {
-    width: min(460px, 86vw);
+    width: min(420px, 82vw);
 
-    max-height: 88vh;
+    max-height: 86vh;
+
+    padding: 9px;
   }
 
   .card img {
-    max-height: 46vh;
+    max-height: 42vh;
   }
 
   .pw {
-    font-size: 2.6rem;
+    font-size: 2.3rem;
+  }
+
+  .next {
+    padding: 9px 17px;
+
+    font-size: 0.95rem;
   }
 }
-
-</style>
 </head>
 <body>
 <main class="app">
